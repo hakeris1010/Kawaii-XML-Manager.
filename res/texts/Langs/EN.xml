@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lang_id> EN </lang_id>
+
+<string_list>
+    <str id="0001" > Main Menu </str>
+    <str id="0002" > 1. Continue watching old anime </str>
+    <str id="0003" > 2. Start watching new anime </str>
+    <str id="0004" > 3. Your anime history </str>
+    <str id="0005" > 4. Information about anime </str>
+    <str id="0006" > Enter your choise: </str>
+
+    <str id="000"> </str>
+</string_list>

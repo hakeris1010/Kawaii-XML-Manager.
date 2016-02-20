@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<data_list>
+    <data id="001" title="MainMenu" >
+        <text>
+            <center> <str id="0001" > <br> <br>
+            <str id="0002" > <br> <br>
+            <str id="0003" > <br> <br>
+            <str id="0004" > <br> <br>
+            <str id="0005" > <br> <br> <br>
+            <str id="0006" > <enter_text>
+            </center>
+        </text>
+    </data>
+
+    <data id="002" title="EnterNewAnimeEpisodes" >
+        <text>
+            <str id="0001" > <br> <br>
+        </text>
+    </data>
+</data_list>
