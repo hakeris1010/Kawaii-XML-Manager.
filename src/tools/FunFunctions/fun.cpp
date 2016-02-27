@@ -7,6 +7,7 @@
 #include "fun.h"
 #include <ctime>
 
+//Standard shit.
 
 void Fun::reverseDouble(double & num)
 {
@@ -210,4 +211,70 @@ std::vector<std::string> Fun::stringToWordArray(std::string str)
     return woot;
 }
 
+bool Fun::isDivided(int64_t num, int64_t by_what)
+{
+    if(num % by_what == 0) return true;
+    return false;
+}
+
+std::string Fun::getFilenameFromPath(std::string fap)
+{
+    std::string zam;
+    for(int i=fap.size()-1; i>=0; i--)
+    {
+        if(fap[i]!='/' && fap[i]!=char(92))  zam.push_back(fap[i]);
+        else break;
+    }
+    return reverseString(zam);
+}
+
+bool Fun::isSystemBigEndian()
+{
+     //int32_t t=-2147483648; //little endian 1 (100...0)
+     uint32_t t=1;            //big endian 1    (000...1)
+     if(t << 24) return true;
+     return false;
+}
+
+//Standard func end.
+
+//WinFuncs start:
+
+#ifdef _WIN32
+#include <windows.h>
+
+std::string WinFun::GetOpenSaveFileWindows(int mode, const char filterLine[])
+{
+    OPENFILENAME ofn;
+    TCHAR fname[ MAX_PATH ];
+    std::string filename;
+
+    ZeroMemory( &ofn , sizeof(ofn));
+
+    ofn.lStructSize = sizeof ( ofn );
+    ofn.hwndOwner = NULL ;
+    ofn.lpstrFile = fname ;
+    ofn.lpstrFile[0] = '\0';
+    ofn.nMaxFile = sizeof( fname );
+    ofn.lpstrFilter = filterLine;
+    ofn.nFilterIndex = 1;
+    ofn.lpstrFileTitle = NULL ;
+    ofn.nMaxFileTitle = 0 ;
+    ofn.lpstrInitialDir = NULL ;
+    ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST ;
+
+    bool retval=false;
+
+    if(mode==1) retval = GetOpenFileName(&ofn);
+    else if(mode==2) retval = GetSaveFileName(&ofn);
+
+    if(retval) filename=fname;
+    else filename="No file selected.";
+
+    return filename;
+}
+
+#endif // _WIN32
+
+//WinFun End.
 //end;
